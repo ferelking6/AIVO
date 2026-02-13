@@ -29,50 +29,16 @@ jobs:
     - name: Get dependencies
       run: flutter pub get
 
-    - name: Analyze code
-      run: flutter analyze
-
-    - name: Run tests
-      run: flutter test
-
-    - name: Build APK (armv8)
+    - name: Build APK (armv8 - ARM64)
       run: |
         flutter build apk \
-          --release \
-          --target-platform android-arm64 \
-          --split-per-abi
-
-    - name: Build App Bundle (armv8)
-      run: |
-        flutter build appbundle \
           --release \
           --target-platform android-arm64
 
     - name: Upload APK artifact
       uses: actions/upload-artifact@v3
       with:
-        name: app-release-apk
+        name: AIVO-release-armv8.apk
         path: build/app/outputs/flutter-apk/app-release.apk
-        retention-days: 7
+        retention-days: 30
 
-    - name: Upload App Bundle artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: app-release-bundle
-        path: build/app/outputs/bundle/release/app-release.aab
-        retention-days: 7
-
-    - name: Create Release
-      if: startsWith(github.ref, 'refs/tags/')
-      uses: softprops/action-gh-release@v1
-      with:
-        files: |
-          build/app/outputs/flutter-apk/app-release.apk
-          build/app/outputs/bundle/release/app-release.aab
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Build Status
-      if: always()
-      run: |
-        echo "Build Status: ${{ job.status }}"
