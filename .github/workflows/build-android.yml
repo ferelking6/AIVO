@@ -41,4 +41,3 @@ jobs:
         name: AIVO-release-armv8.apk
         path: build/app/outputs/flutter-apk/app-release.apk
         retention-days: 30
-
