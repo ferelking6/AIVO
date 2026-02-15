@@ -97,12 +97,12 @@ class _ProductReviewsWidgetState extends State<ProductReviewsWidget> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      review.title,
+                      review.title ?? '',
                       style: Theme.of(context).textTheme.titleSmall,
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      review.userName,
+                      review.userId,
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ],
@@ -121,7 +121,7 @@ class _ProductReviewsWidgetState extends State<ProductReviewsWidget> {
           ),
           const SizedBox(height: 8),
           Text(
-            review.comment,
+            review.comment ?? '',
             style: Theme.of(context).textTheme.bodyMedium,
             maxLines: 4,
             overflow: TextOverflow.ellipsis,
