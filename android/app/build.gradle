@@ -1,9 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
-def flutterRoot = rootProject.projectDir.parentFile.absolutePath
-apply from: "$flutterRoot/.gradle/flutter.gradle"
-
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
@@ -11,6 +8,13 @@ if (localPropertiesFile.exists()) {
         localProperties.load(reader)
     }
 }
+
+def flutterRoot = localProperties.getProperty('flutter.sdk')
+if (flutterRoot == null) {
+    flutterRoot = System.getenv('FLUTTER_ROOT')
+}
+
+apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
 if (flutterVersionCode == null) {
