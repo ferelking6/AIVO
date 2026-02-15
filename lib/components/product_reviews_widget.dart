@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../models/product_review.dart';
+import '../../models/Review.dart';
 import '../../providers/review_provider.dart';
 
 class ProductReviewsWidget extends StatefulWidget {
@@ -81,7 +81,7 @@ class _ProductReviewsWidgetState extends State<ProductReviewsWidget> {
 
   Widget _buildReviewItem(
     BuildContext context,
-    ProductReview review,
+    Review review,
     ReviewProvider provider,
   ) {
     return Padding(

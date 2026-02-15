@@ -93,11 +93,12 @@ class _FlashSalesSectionState extends State<FlashSalesSection> {
                   child: Row(
                     children: flashSalesProvider.flashSales.map((sale) {
                       final product = Product(
-                        id: sale.productId,
+                        id: int.tryParse(sale.productId.toString()) ?? 0,
                         title: sale.productTitle,
-                        subTitle: '',
                         price: sale.salePrice,
-                        image: sale.imageUrl,
+                        description: '',
+                        images: [sale.imageUrl],
+                        colors: [],
                         isFavourite: false,
                         isPopular: false,
                       );

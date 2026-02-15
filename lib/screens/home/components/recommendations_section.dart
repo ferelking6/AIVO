@@ -47,7 +47,8 @@ class _RecommendationsSectionState extends State<RecommendationsSection> {
       if (mounted) {
         setState(() {
           // Get first section from recommendations
-          _recommendations = recommendations[widget.sectionTitle.toLowerCase().replaceAll(' ', '_')] ?? [];
+          final rawData = recommendations[widget.sectionTitle.toLowerCase().replaceAll(' ', '_')] ?? [];
+          _recommendations = (rawData as List).cast<Map<String, dynamic>>();
           _isLoading = false;
         });
       }
@@ -111,11 +112,12 @@ class _RecommendationsSectionState extends State<RecommendationsSection> {
                 const SizedBox(width: 20),
                 ..._recommendations.map((rec) {
                   final product = Product(
-                    id: rec['product_id'],
+                    id: int.tryParse(rec['product_id'].toString()) ?? 0,
                     title: rec['title'] ?? 'Product',
-                    subTitle: '',
                     price: double.tryParse(rec['price'].toString()) ?? 0.0,
-                    image: rec['image_url'] ?? '',
+                    description: '',
+                    images: [rec['image_url'] ?? ''],
+                    colors: [],
                     isFavourite: false,
                     isPopular: false,
                   );
