@@ -56,7 +56,7 @@ class _WishlistButtonState extends State<WishlistButton>
     });
 
     final success = await wishlistProvider.toggleWishlist(
-      userId: authProvider.user!.id,
+      userId: authProvider.user!.id ?? '',
       productId: widget.productId,
     );
 

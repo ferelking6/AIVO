@@ -125,6 +125,7 @@ class _RecommendationsSectionState extends State<RecommendationsSection> {
                     child: RecommendationCard(
                       productId: rec['product_id'],
                       title: rec['title'] ?? 'Product',
+                      subTitle: rec['brand'] ?? 'Brand',
                       brand: rec['brand'] ?? 'Brand',
                       price: double.tryParse(rec['price'].toString()) ?? 0.0,
                       imageUrl: rec['image_url'] ?? '',
