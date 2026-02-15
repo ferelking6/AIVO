@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    If you are serving this web app in a subdirectory, update the <base> tag below.
+    For example, if the URL is 'example.com/flutter_web/',
+    change the href attribute below to href="/flutter_web/".
+  -->
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="AIVO - Smart E-commerce App">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="AIVO">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>AIVO - Smart Shopping</title>
+  <link rel="manifest" href="manifest.json">
+
+  <script>
+    // The value of window.FLUTTER_WEB_INITIALIZATION_TYPE is (or will be) one of:
+    // 1. "normal" - normal adaptive bootstrapping
+    // 2. "auto" - auto locale selection
+    window.FLUTTER_WEB_INITIALIZATION_TYPE = "normal";
+  </script>
+
+  <link rel="stylesheet" type="text/css" href="flutter.css">
+  <meta name="theme-color" content="#1f1f1f">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- This script installs service_worker.js to provide PWA functionality to
+       application. For more information, see:
+       https://developers.google.com/web/fundamentals/primers/service-workers -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('flutter-first-frame', function () {
+        navigator.serviceWorker.register('flutter_service_worker.js?v=1');
+      });
+    }
+  </script>
+  <script src="main.dart.js" type="application/javascript"></script>
+</head>
+<body></body>
+</html>

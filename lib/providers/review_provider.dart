@@ -88,6 +88,32 @@ class ReviewProvider extends ChangeNotifier {
     }
   }
 
+  /// Alias for fetchProductReviews - used in old code
+  Future<void> fetchReviews({required String productId}) async {
+    return fetchProductReviews(productId: productId);
+  }
+
+  /// Get reviews for a product
+  Future<List<Review>> getReviewsForProduct(String productId) async {
+    return await _reviewService.getProductReviews(productId: productId);
+  }
+
+  /// Get rating statistics for a product
+  Future<ReviewSummary?> getRatingStats(String productId) async {
+    return await _reviewService.getProductRatingSummary(productId);
+  }
+
+  /// Mark a review as helpful
+  Future<void> markHelpful(String reviewId, bool helpful) async {
+    try {
+      // TODO: Implement mark helpful in review service
+      notifyListeners();
+    } catch (e) {
+      _error = e.toString();
+      notifyListeners();
+    }
+  }
+
   void clearError() {
     _error = null;
     notifyListeners();

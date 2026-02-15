@@ -1,0 +1,1 @@
+{"inputs":["/workspaces/AIVO/web/*/index.html","/workspaces/AIVO/web/flutter_bootstrap.js","/home/codespace/.flutter/bin/internal/engine.version"],"outputs":["/workspaces/AIVO/build/web/*/index.html","/workspaces/AIVO/build/web/flutter_bootstrap.js"],"buildKey":"[{\"compileTarget\":\"dart2js\",\"renderer\":\"canvaskit\",\"mainJsPath\":\"main.dart.js\"}]"}

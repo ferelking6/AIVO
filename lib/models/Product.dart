@@ -21,6 +21,9 @@ class Product {
     required this.description,
   });
 
+  /// Get the first image from the list
+  String get image => images.isNotEmpty ? images[0] : '';
+
   /// Convert to JSON for offline storage
   Map<String, dynamic> toJson() {
     return {
