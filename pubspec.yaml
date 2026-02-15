@@ -69,6 +69,9 @@ dependencies:
   # Secure Storage
   flutter_secure_storage: ^9.0.0
 
+  # Cryptography
+  crypto: ^3.0.3 # For PIN hashing (SHA256)
+
   # Preferences & Local Storage
   shared_preferences: ^2.2.0
 
