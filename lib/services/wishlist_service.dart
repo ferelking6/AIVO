@@ -1,0 +1,128 @@
+import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:aivo/models/Wishlist.dart';
+
+class WishlistService {
+  final SupabaseClient _supabase = Supabase.instance.client;
+
+  /// Add product to wishlist
+  Future<bool> addToWishlist({
+    required String userId,
+    required String productId,
+  }) async {
+    try {
+      await _supabase.from('wishlists').insert({
+        'user_id': userId,
+        'product_id': productId,
+        'added_at': DateTime.now().toIso8601String(),
+      });
+      return true;
+    } catch (e) {
+      print('Error adding to wishlist: $e');
+      return false;
+    }
+  }
+
+  /// Remove product from wishlist
+  Future<bool> removeFromWishlist({
+    required String userId,
+    required String productId,
+  }) async {
+    try {
+      await _supabase
+          .from('wishlists')
+          .delete()
+          .eq('user_id', userId)
+          .eq('product_id', productId);
+      return true;
+    } catch (e) {
+      print('Error removing from wishlist: $e');
+      return false;
+    }
+  }
+
+  /// Check if product is in wishlist
+  Future<bool> isInWishlist({
+    required String userId,
+    required String productId,
+  }) async {
+    try {
+      final response = await _supabase
+          .from('wishlists')
+          .select()
+          .eq('user_id', userId)
+          .eq('product_id', productId)
+          .maybeSingle();
+
+      return response != null;
+    } catch (e) {
+      print('Error checking wishlist: $e');
+      return false;
+    }
+  }
+
+  /// Get user's wishlist
+  Future<List<Wishlist>> getUserWishlist({
+    required String userId,
+    int limit = 50,
+    int offset = 0,
+  }) async {
+    try {
+      final response = await _supabase
+          .from('wishlists')
+          .select('*, products(*)')
+          .eq('user_id', userId)
+          .order('added_at', ascending: false)
+          .range(offset, offset + limit - 1);
+
+      return (response as List).map((json) => Wishlist.fromJson(json)).toList();
+    } catch (e) {
+      print('Error fetching wishlist: $e');
+      return [];
+    }
+  }
+
+  /// Get wishlist count for user
+  Future<int> getWishlistCount({required String userId}) async {
+    try {
+      final response = await _supabase
+          .from('wishlists')
+          .select('*', const FetchOptions(count: CountOption.exact))
+          .eq('user_id', userId);
+
+      return response.length;
+    } catch (e) {
+      print('Error fetching wishlist count: $e');
+      return 0;
+    }
+  }
+
+  /// Clear entire wishlist
+  Future<bool> clearWishlist({required String userId}) async {
+    try {
+      await _supabase.from('wishlists').delete().eq('user_id', userId);
+      return true;
+    } catch (e) {
+      print('Error clearing wishlist: $e');
+      return false;
+    }
+  }
+
+  /// Export wishlist (for sharing)
+  Future<List<Map<String, dynamic>>> exportWishlist({required String userId}) async {
+    try {
+      final wishlist = await getUserWishlist(userId: userId, limit: 1000);
+      return wishlist
+          .map((w) => {
+                'product_id': w.productId,
+                'product_title': w.product?.title ?? '',
+                'product_price': w.product?.price ?? 0,
+                'product_image': w.product?.image ?? '',
+                'added_at': w.addedAt.toIso8601String(),
+              })
+          .toList();
+    } catch (e) {
+      print('Error exporting wishlist: $e');
+      return [];
+    }
+  }
+}
