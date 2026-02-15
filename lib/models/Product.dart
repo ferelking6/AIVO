@@ -6,7 +6,8 @@ class Product {
   final List<String> images;
   final List<Color> colors;
   final double rating, price;
-  final bool isFavourite, isPopular;
+  bool isFavourite;
+  final bool isPopular;
 
   Product({
     required this.id,

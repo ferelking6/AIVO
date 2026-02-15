@@ -2,7 +2,6 @@ import 'package:flutter/widgets.dart';
 import 'package:aivo/screens/products/products_screen.dart';
 
 import 'screens/cart/cart_screen.dart';
-import 'screens/chat/chat_screen.dart';
 import 'screens/complete_profile/complete_profile_screen.dart';
 import 'screens/details/details_screen.dart';
 import 'screens/forgot_password/forgot_password_screen.dart';
@@ -35,5 +34,4 @@ final Map<String, WidgetBuilder> routes = {
   ProfileScreen.routeName: (context) => const ProfileScreen(),
   NotificationsScreen.routeName: (context) => const NotificationsScreen(),
   SettingsScreen.routeName: (context) => const SettingsScreen(),
-  ChatScreen.routeName: (context) => const ChatScreen(),
 };

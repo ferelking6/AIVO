@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../chat/chat_screen.dart';
 import '../notifications/notifications_screen.dart';
 import '../settings/settings_screen.dart';
 import 'components/profile_menu.dart';
@@ -36,11 +35,6 @@ class ProfileScreen extends StatelessWidget {
               text: "Settings",
               icon: "assets/icons/Settings.svg",
               press: () => Navigator.pushNamed(context, SettingsScreen.routeName),
-            ),
-            ProfileMenu(
-              text: "Chat Support",
-              icon: "assets/icons/Chat.svg",
-              press: () => Navigator.pushNamed(context, ChatScreen.routeName),
             ),
             ProfileMenu(
               text: "Help Center",

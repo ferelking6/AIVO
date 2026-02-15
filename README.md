@@ -97,7 +97,9 @@ Comprehensive documentation is available in the `Dev/Docs/` directory:
 | **[GETTING_STARTED.md](Dev/Docs/GETTING_STARTED.md)** | Development setup, common commands, troubleshooting |
 
 ### Additional Resources
-- **[DEVELOPMENT_REPORT.md](DEVELOPMENT_REPORT.md)** - Detailed project status and roadmap
+- **[DEVELOPMENT_REPORT.md](Dev/Docs/DEVELOPMENT_REPORT.md)** - Detailed project status and roadmap
+- **[AUTHENTICATION_SETUP.md](Dev/Docs/AUTHENTICATION_SETUP.md)** - Supabase authentication guide
+- **[DIAGNOSTIC_BUILD_FAILURE.md](Dev/Docs/DIAGNOSTIC_BUILD_FAILURE.md)** - Build troubleshooting guide
 - **[LICENSE](LICENSE)** - Project license
 
 ---
@@ -235,7 +237,7 @@ See `.github/workflows/` for details.
 - [ ] Push notifications
 - [ ] Offline support
 
-See [DEVELOPMENT_REPORT.md](DEVELOPMENT_REPORT.md) for detailed roadmap.
+See [DEVELOPMENT_REPORT.md](Dev/Docs/DEVELOPMENT_REPORT.md) for detailed roadmap.
 
 ---
 
@@ -312,7 +314,8 @@ See `pubspec.yaml` for complete list.
 - 📖 [Architecture Guide](Dev/Docs/ARCHITECTURE.md)
 - 🎨 [Design System](Dev/Docs/DESIGN_SYSTEM.md)
 - 🚀 [Getting Started](Dev/Docs/GETTING_STARTED.md)
-- 📊 [Development Report](DEVELOPMENT_REPORT.md)
+- 📊 [Development Report](Dev/Docs/DEVELOPMENT_REPORT.md)
+- 🔐 [Authentication Setup](Dev/Docs/AUTHENTICATION_SETUP.md)
 
 ### Resources
 - [Flutter Documentation](https://flutter.dev)

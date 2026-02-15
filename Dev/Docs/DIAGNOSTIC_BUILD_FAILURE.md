@@ -1,11 +1,11 @@
 # Diagnostic: Pourquoi le Build Marche Plus (27 Commits Cassés)
 
 ## 📊 Situation Actuelle (Commit 773b41a)
-**État:** ❌ CASSÉ - Java compilation fails  
+**État:** ❌ CASSÉ - Java compilation fails
 **Erreurs:** 17 erreurs Java - `io.flutter.embedding.android` not found, `androidx.annotation` not found
 
 ## ✅ Éta Fonctionnel (Commit 4304da6)
-**État:** ✅ MARCHE - Build succès  
+**État:** ✅ MARCHE - Build succès
 **Configuration:** AGP 8.1.0 + Kotlin + Flutter Plugin Déclaratif
 
 ---
@@ -37,7 +37,7 @@ include ":app"
 **❌ Cassé (actuel):**
 ```groovy
 pluginManagement { repositories {...} }
-dependencyResolutionManagement { 
+dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
     repositories {...}
 }
@@ -176,6 +176,6 @@ Tous APRÈS 4304da6 et AVANT lui = les vrais problèmes résolus ✅
 2. **Push force:** `git push -f origin main`
 3. **CI/CD:** Laisser construire (~5 min)
 4. **Vérification:** Si APK généré = ✅ Succès
-5. **Gelé:** Ne pas modifier `android/` jus**qu'à clarification**
+5. **Gelé:** Ne pas modifier `android/` jusqu'à clarification
 
 **Temps estimé:** 5-10 minutes

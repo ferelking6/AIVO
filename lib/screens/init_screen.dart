@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:aivo/constants.dart';
-import 'package:aivo/screens/chat/chat_screen.dart';
 import 'package:aivo/screens/favorite/favorite_screen.dart';
 import 'package:aivo/screens/home/home_screen.dart';
 import 'package:aivo/screens/profile/profile_screen.dart';
@@ -29,7 +28,6 @@ class _InitScreenState extends State<InitScreen> {
   final pages = [
     const HomeScreen(),
     const FavoriteScreen(),
-    const ChatScreen(),
     const ProfileScreen()
   ];
 
