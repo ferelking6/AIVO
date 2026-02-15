@@ -1,0 +1,51 @@
+{
+  "name": "Flutter Full Android Dev",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "17"
+    }
+  },
+
+  "postCreateCommand": "bash -c '\
+    sudo apt update && \
+    sudo apt install -y curl git unzip xz-utils zip libglu1-mesa && \
+    \
+    # INSTALL FLUTTER \
+    sudo git clone https://github.com/flutter/flutter.git -b stable /opt/flutter && \
+    echo \"export PATH=/opt/flutter/bin:\$PATH\" >> ~/.bashrc && \
+    export PATH=/opt/flutter/bin:$PATH && \
+    flutter config --no-analytics && \
+    flutter precache --android && \
+    \
+    # INSTALL ANDROID SDK \
+    sudo mkdir -p /opt/android-sdk/cmdline-tools && \
+    cd /tmp && \
+    curl -o sdk.zip https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip && \
+    unzip sdk.zip -d sdk-temp && \
+    sudo mv sdk-temp/cmdline-tools /opt/android-sdk/cmdline-tools/latest && \
+    rm -rf sdk.zip sdk-temp && \
+    \
+    echo \"export ANDROID_HOME=/opt/android-sdk\" >> ~/.bashrc && \
+    echo \"export ANDROID_SDK_ROOT=/opt/android-sdk\" >> ~/.bashrc && \
+    echo \"export PATH=\$PATH:/opt/android-sdk/cmdline-tools/latest/bin:/opt/android-sdk/platform-tools\" >> ~/.bashrc && \
+    export ANDROID_HOME=/opt/android-sdk && \
+    export ANDROID_SDK_ROOT=/opt/android-sdk && \
+    export PATH=$PATH:/opt/android-sdk/cmdline-tools/latest/bin:/opt/android-sdk/platform-tools && \
+    \
+    yes | sdkmanager --licenses && \
+    sdkmanager \"platform-tools\" \"platforms;android-34\" \"build-tools;34.0.0\" && \
+    \
+    flutter doctor -v \
+  '",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Dart-Code.flutter",
+        "Dart-Code.dart-code"
+      ]
+    }
+  }
+}
