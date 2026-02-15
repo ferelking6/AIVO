@@ -10,6 +10,7 @@ class RecommendationCard extends StatelessWidget {
   final String imageUrl;
   final double? score;
   final String? reason;
+  final String? subTitle;
   final VoidCallback onPress;
 
   const RecommendationCard({
@@ -21,6 +22,7 @@ class RecommendationCard extends StatelessWidget {
     required this.imageUrl,
     this.score,
     this.reason,
+    this.subTitle,
     required this.onPress,
   });
 
