@@ -57,36 +57,6 @@ class NotificationProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  /// Subscribe to topic
-  Future<void> subscribeToTopic(String topic) async {
-    try {
-      await _notificationService.subscribeToTopic(topic);
-      notifyListeners();
-    } catch (e) {
-      print('Error subscribing to topic: $e');
-    }
-  }
-
-  /// Unsubscribe from topic
-  Future<void> unsubscribeFromTopic(String topic) async {
-    try {
-      await _notificationService.unsubscribeFromTopic(topic);
-      notifyListeners();
-    } catch (e) {
-      print('Error unsubscribing from topic: $e');
-    }
-  }
-
-  /// Get FCM token
-  Future<String?> getFCMToken() async {
-    try {
-      return await _notificationService.getFCMToken();
-    } catch (e) {
-      print('Error getting FCM token: $e');
-      return null;
-    }
-  }
-
   @override
   void dispose() {
     _notificationService.dispose();

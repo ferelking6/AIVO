@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class NotificationService {
@@ -11,7 +10,6 @@ class NotificationService {
 
   NotificationService._internal();
 
-  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
   final FlutterLocalNotificationsPlugin _localNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
 
@@ -21,22 +19,9 @@ class NotificationService {
   Stream<Map<String, dynamic>> get notificationStream =>
       _notificationStreamController.stream;
 
-  /// Initialize Firebase Cloud Messaging and Local Notifications
+  /// Initialize Local Notifications
   Future<void> initialize() async {
     try {
-      // Request notification permissions
-      NotificationSettings settings =
-          await _firebaseMessaging.requestPermission(
-        alert: true,
-        announcement: false,
-        badge: true,
-        criticalAlert: false,
-        provisional: false,
-        sound: true,
-      );
-
-      print('User granted permission: ${settings.authorizationStatus}');
-
       // Initialize local notifications
       const AndroidInitializationSettings androidInitializationSettings =
           AndroidInitializationSettings('@mipmap/ic_launcher');
@@ -56,39 +41,10 @@ class NotificationService {
         },
       );
 
-      // Handle foreground messages
-      FirebaseMessaging.onMessage.listen(_handleForegroundMessage);
-
-      // Handle background message tap
-      FirebaseMessaging.onMessageOpenedApp.listen(_handleBackgroundMessageTap);
-
-      // Get FCM token
-      String? token = await _firebaseMessaging.getToken();
-      print('FCM Token: $token');
+      print('Notifications initialized');
     } catch (e) {
       print('Error initializing notifications: $e');
     }
-  }
-
-  /// Handle foreground messages
-  void _handleForegroundMessage(RemoteMessage message) {
-    print('Foreground message received: ${message.messageId}');
-    print('Title: ${message.notification?.title}');
-    print('Body: ${message.notification?.body}');
-
-    _showLocalNotification(
-      title: message.notification?.title ?? 'Notification',
-      body: message.notification?.body ?? '',
-      payload: message.data,
-    );
-
-    _notificationStreamController.add(message.data);
-  }
-
-  /// Handle background message tap
-  void _handleBackgroundMessageTap(RemoteMessage message) {
-    print('Background message opened: ${message.messageId}');
-    _notificationStreamController.add(message.data);
   }
 
   /// Handle local notification tap
@@ -100,10 +56,10 @@ class NotificationService {
   }
 
   /// Show local notification
-  Future<void> _showLocalNotification({
+  Future<void> showLocalNotification({
     required String title,
     required String body,
-    required Map<String, dynamic> payload,
+    Map<String, dynamic> payload = const {},
   }) async {
     const AndroidNotificationDetails androidNotificationDetails =
         AndroidNotificationDetails(
@@ -134,36 +90,6 @@ class NotificationService {
       notificationDetails,
       payload: payload.toString(),
     );
-  }
-
-  /// Subscribe to topic
-  Future<void> subscribeToTopic(String topic) async {
-    try {
-      await _firebaseMessaging.subscribeToTopic(topic);
-      print('Subscribed to topic: $topic');
-    } catch (e) {
-      print('Error subscribing to topic: $e');
-    }
-  }
-
-  /// Unsubscribe from topic
-  Future<void> unsubscribeFromTopic(String topic) async {
-    try {
-      await _firebaseMessaging.unsubscribeFromTopic(topic);
-      print('Unsubscribed from topic: $topic');
-    } catch (e) {
-      print('Error unsubscribing from topic: $e');
-    }
-  }
-
-  /// Get FCM token
-  Future<String?> getFCMToken() async {
-    try {
-      return await _firebaseMessaging.getToken();
-    } catch (e) {
-      print('Error getting FCM token: $e');
-      return null;
-    }
   }
 
   /// Dispose resources

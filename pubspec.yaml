@@ -54,17 +54,11 @@ dependencies:
   local_auth: ^2.1.0 # Fingerprint/Face recognition
 
   # Notifications
-  firebase_core: ^2.24.0
-  firebase_messaging: ^14.0.0 # Push notifications
   flutter_local_notifications: ^15.0.0 # Local notifications
 
   # Offline Mode
   hive: ^2.2.0 # Local storage
   hive_flutter: ^1.1.0
-
-  # Analytics & Monitoring
-  firebase_analytics: ^10.7.0
-  firebase_crashlytics: ^3.3.0
 
   # Secure Storage
   flutter_secure_storage: ^9.0.0
