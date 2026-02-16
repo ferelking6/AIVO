@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:aivo/components/product_card.dart';
-import 'package:aivo/models/Product.dart';
 import 'package:aivo/providers/product_provider.dart';
 import 'package:aivo/components/skeleton_loaders.dart';
 import 'package:aivo/utils/app_toast.dart';
@@ -42,9 +41,9 @@ class _ProductsScreenState extends State<ProductsScreen> {
       body: Consumer<ProductProvider>(
         builder: (context, productProvider, child) {
           if (productProvider.isLoading && productProvider.allProducts.isEmpty) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: const SkeletonProductCardList(count: 8),
+            return const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              child: SkeletonProductCardList(count: 8),
             );
           }
 

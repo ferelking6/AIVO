@@ -4,7 +4,7 @@ import '../services/notification_service.dart';
 class NotificationProvider extends ChangeNotifier {
   final NotificationService _notificationService = NotificationService();
   bool _isInitialized = false;
-  List<Map<String, dynamic>> _notifications = [];
+  final List<Map<String, dynamic>> _notifications = [];
   bool _notificationsEnabled = true;
 
   bool get isInitialized => _isInitialized;

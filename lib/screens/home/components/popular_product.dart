@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 
 import '../../../components/product_card.dart';
 import '../../../components/skeleton_loaders.dart';
-import '../../../models/Product.dart';
 import '../../../providers/product_provider.dart';
 import '../../details/details_screen.dart';
 import '../../products/products_screen.dart';

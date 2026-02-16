@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 
 import '../../components/product_card.dart';
 import '../../components/skeleton_loaders.dart';
-import '../../models/Product.dart';
 import '../../providers/search_provider.dart';
 import '../details/details_screen.dart';
 
@@ -130,17 +129,17 @@ class _SearchScreenState extends State<SearchScreen> {
                 child: searchProvider.isLoading
                     ? const SkeletonProductCardList(count: 6)
                     : searchProvider.searchResults.isEmpty
-                        ? Center(
+                        ? const Center(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                const Icon(
+                                Icon(
                                   Icons.search_off,
                                   size: 64,
                                   color: Colors.grey,
                                 ),
-                                const SizedBox(height: 16),
-                                const Text(
+                                SizedBox(height: 16),
+                                Text(
                                   'No products found',
                                   style: TextStyle(
                                     fontSize: 16,

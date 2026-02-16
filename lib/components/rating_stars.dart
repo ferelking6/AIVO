@@ -48,11 +48,11 @@ class RatingStars extends StatelessWidget {
       mainAxisAlignment: alignment,
       children: [
         ...getStars(),
-        SizedBox(width: 8),
+        const SizedBox(width: 8),
         if (showCount)
           Text(
             '$rating (${reviewCount > 0 ? '$reviewCount reviews' : 'No reviews'})',
-            style: TextStyle(fontSize: 12, color: Colors.grey),
+            style: const TextStyle(fontSize: 12, color: Colors.grey),
           )
       ],
     );

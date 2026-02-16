@@ -14,7 +14,7 @@ class NotificationsScreen extends StatelessWidget {
       ),
       body: ListView(
         padding: const EdgeInsets.symmetric(vertical: 16),
-        children: [
+        children: const [
           NotificationCard(
             title: "Order Confirmed",
             message: "Your order #12345 has been confirmed",

@@ -8,3 +8,24 @@ build/
 *.gradle
 local.properties
 GeneratedPluginRegistrant.java
+
+# Dart/Flutter IDE specific files
+.dart_tool/
+.flutter/
+.packages
+.pub-cache/
+.pub/
+
+# Web
+web/flutter_service_worker.js
+
+# Exceptions to above rules
+!/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
+!/dev/ci/**/packages/**/.packages
+
+# PubSpec lockfile (generated)
+pubspec.lock
+
+# Environment variables
+.env
+.env.local

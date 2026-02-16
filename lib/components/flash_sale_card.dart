@@ -172,7 +172,7 @@ class FlashSaleCard extends StatelessWidget {
                           ),
                           const SizedBox(height: 2),
                           Text(
-                            '${soldQuantity}/${maxQuantity} sold',
+                            '$soldQuantity/$maxQuantity sold',
                             style: const TextStyle(
                               fontSize: 9,
                               color: Colors.grey,

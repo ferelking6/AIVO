@@ -220,7 +220,7 @@ class ProductService {
     }
 
     return Product(
-      id: int.parse(json['id'].toString().split('-').first.replaceAll(RegExp(r'[^0-9]'), '')) ?? 0,
+      id: int.tryParse(json['id'].toString().split('-').first.replaceAll(RegExp(r'[^0-9]'), '')) ?? 0,
       title: json['title'] ?? 'Unknown',
       description: json['description'] ?? '',
       price: (json['price'] as num).toDouble(),

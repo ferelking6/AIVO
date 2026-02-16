@@ -151,8 +151,8 @@ class ThemeProvider extends ChangeNotifier {
       brightness: Brightness.dark,
       primaryColor: primaryColor,
       scaffoldBackgroundColor: const Color(0xFF1a1a1a),
-      appBarTheme: AppBarTheme(
-        backgroundColor: const Color(0xFF2d2d2d),
+      appBarTheme: const AppBarTheme(
+        backgroundColor: Color(0xFF2d2d2d),
         foregroundColor: Colors.white,
         elevation: 0,
       ),
