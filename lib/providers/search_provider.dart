@@ -22,7 +22,6 @@ class SearchProvider extends ChangeNotifier {
   // Filters
   double? _minPrice;
   double? _maxPrice;
-  List<String> _selectedCategories = [];
 
   // Getters
   List<Product> get searchResults => _searchResults;
@@ -107,13 +106,6 @@ class SearchProvider extends ChangeNotifier {
     _applyFilters();
   }
 
-  /// Set category filter
-  void setCategories(List<String> categories) {
-    _selectedCategories = categories;
-    _currentPage = 1;
-    _applyFilters();
-  }
-
   /// Go to next page
   void nextPage() {
     if (hasNextPage) {
@@ -146,7 +138,6 @@ class SearchProvider extends ChangeNotifier {
     _currentPage = 1;
     _minPrice = null;
     _maxPrice = null;
-    _selectedCategories = [];
     _searchService.clear();
     notifyListeners();
   }
