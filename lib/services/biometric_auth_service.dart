@@ -2,6 +2,7 @@ import 'package:local_auth/local_auth.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:crypto/crypto.dart';
 import 'dart:convert';
+import 'package:aivo/utils/app_logger.dart';
 
 class BiometricAuthService {
   static final BiometricAuthService _instance = BiometricAuthService._internal();
@@ -30,7 +31,7 @@ class BiometricAuthService {
     try {
       return await _localAuth.canCheckBiometrics;
     } catch (e) {
-      print('Biometric check failed: $e');
+      AppLogger.error('Biometric check failed: $e', tag: 'BiometricAuth');
       return false;
     }
   }
@@ -40,7 +41,7 @@ class BiometricAuthService {
     try {
       return await _localAuth.getAvailableBiometrics();
     } catch (e) {
-      print('Getting available biometrics failed: $e');
+      AppLogger.error('Getting available biometrics failed: $e', tag: 'BiometricAuth');
       return [];
     }
   }
@@ -74,7 +75,7 @@ class BiometricAuthService {
       );
       return isAuthenticated;
     } catch (e) {
-      print('Authentication failed: $e');
+      AppLogger.error('Authentication failed: $e', tag: 'BiometricAuth');
       return false;
     }
   }
@@ -96,10 +97,10 @@ class BiometricAuthService {
       final pinHash = _hashPin(pin);
       await _secureStorage.write(key: _pinHashKey, value: pinHash);
       await _secureStorage.write(key: _pinEnabledKey, value: 'true');
-      print('PIN setup successfully');
+      AppLogger.log('PIN setup successfully', tag: 'BiometricAuth');
       return true;
     } catch (e) {
-      print('Failed to setup PIN: $e');
+      AppLogger.error('Failed to setup PIN: $e', tag: 'BiometricAuth');
       return false;
     }
   }
@@ -114,7 +115,7 @@ class BiometricAuthService {
       final pinHash = _hashPin(pin);
       return pinHash == storedHash;
     } catch (e) {
-      print('PIN verification failed: $e');
+      AppLogger.error('PIN verification failed: $e', tag: 'BiometricAuth');
       return false;
     }
   }
@@ -139,7 +140,7 @@ class BiometricAuthService {
 
       return await setupPin(newPin);
     } catch (e) {
-      print('Failed to update PIN: $e');
+      AppLogger.error('Failed to update PIN: $e', tag: 'BiometricAuth');
       return false;
     }
   }
@@ -149,9 +150,9 @@ class BiometricAuthService {
     try {
       await _secureStorage.delete(key: _pinHashKey);
       await _secureStorage.delete(key: _pinEnabledKey);
-      print('PIN disabled');
+      AppLogger.log('PIN disabled', tag: 'BiometricAuth');
     } catch (e) {
-      print('Failed to disable PIN: $e');
+      AppLogger.error('Failed to disable PIN: $e', tag: 'BiometricAuth');
     }
   }
 
@@ -162,9 +163,9 @@ class BiometricAuthService {
     try {
       await _secureStorage.write(key: _biometricEnabledKey, value: 'true');
       await _secureStorage.write(key: _emailKey, value: email);
-      print('Biometric login enabled for: $email');
+      AppLogger.log('Biometric login enabled for: $email', tag: 'BiometricAuth');
     } catch (e) {
-      print('Failed to enable biometric login: $e');
+      AppLogger.error('Failed to enable biometric login: $e', tag: 'BiometricAuth');
     }
   }
 
@@ -172,9 +173,9 @@ class BiometricAuthService {
   Future<void> disableBiometricLogin() async {
     try {
       await _secureStorage.delete(key: _biometricEnabledKey);
-      print('Biometric login disabled');
+      AppLogger.log('Biometric login disabled', tag: 'BiometricAuth');
     } catch (e) {
-      print('Failed to disable biometric login: $e');
+      AppLogger.error('Failed to disable biometric login: $e', tag: 'BiometricAuth');
     }
   }
 
@@ -216,7 +217,7 @@ class BiometricAuthService {
 
       return null;
     } catch (e) {
-      print('Biometric login failed: $e');
+      AppLogger.error('Biometric login failed: $e', tag: 'BiometricAuth');
       return null;
     }
   }
@@ -232,7 +233,7 @@ class BiometricAuthService {
       final email = await getStoredEmail();
       return email;
     } catch (e) {
-      print('PIN login failed: $e');
+      AppLogger.error('PIN login failed: $e', tag: 'BiometricAuth');
       return null;
     }
   }
@@ -278,9 +279,9 @@ class BiometricAuthService {
       await _secureStorage.delete(key: _pinHashKey);
       await _secureStorage.delete(key: _pinEnabledKey);
       await _secureStorage.delete(key: _authMethodKey);
-      print('All auth data cleared');
+      AppLogger.log('All auth data cleared', tag: 'BiometricAuth');
     } catch (e) {
-      print('Error clearing auth data: $e');
+      AppLogger.error('Error clearing auth data: $e', tag: 'BiometricAuth');
     }
   }
 }

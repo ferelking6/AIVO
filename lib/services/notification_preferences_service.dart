@@ -1,4 +1,5 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:aivo/utils/app_logger.dart';
 import 'package:aivo/models/NotificationPreferences.dart';
 
 class NotificationPreferencesService {
@@ -17,7 +18,7 @@ class NotificationPreferencesService {
       if (response.isEmpty) return null;
       return NotificationPreferences.fromJson(response[0]);
     } catch (e) {
-      print('Error fetching notification preferences: $e');
+      AppLogger.error('Error fetching notification preferences: $e', tag: 'NotificationPreferencesService');
       return null;
     }
   }
@@ -49,7 +50,7 @@ class NotificationPreferencesService {
       );
       return true;
     } catch (e) {
-      print('Error updating notification preferences: $e');
+      AppLogger.error('Error updating notification preferences: $e', tag: 'NotificationPreferencesService');
       return false;
     }
   }

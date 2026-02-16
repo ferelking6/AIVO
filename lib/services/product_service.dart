@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:aivo/utils/app_logger.dart';
 import '../models/Product.dart';
 
 class ProductService {
@@ -36,7 +37,7 @@ class ProductService {
       }
       return products;
     } catch (e) {
-      print('Error fetching products: $e');
+      AppLogger.error('Error fetching products: $e', tag: 'ProductService');
       return [];
     }
   }
@@ -65,7 +66,7 @@ class ProductService {
       }
       return products;
     } catch (e) {
-      print('Error fetching popular products: $e');
+      AppLogger.error('Error fetching popular products: $e', tag: 'ProductService');
       return [];
     }
   }
@@ -94,7 +95,7 @@ class ProductService {
       }
       return products;
     } catch (e) {
-      print('Error fetching products by category: $e');
+      AppLogger.error('Error fetching products by category: $e', tag: 'ProductService');
       return [];
     }
   }
@@ -119,7 +120,7 @@ class ProductService {
 
       return _productFromJson(response);
     } catch (e) {
-      print('Error fetching product: $e');
+      AppLogger.error('Error fetching product: $e', tag: 'ProductService');
       return null;
     }
   }
@@ -154,7 +155,7 @@ class ProductService {
       }
       return products;
     } catch (e) {
-      print('Error fetching favorites: $e');
+      AppLogger.error('Error fetching favorites: $e', tag: 'ProductService');
       return [];
     }
   }
@@ -178,7 +179,7 @@ class ProductService {
       }
       return true;
     } catch (e) {
-      print('Error toggling favorite: $e');
+      AppLogger.error('Error toggling favorite: $e', tag: 'ProductService');
       return false;
     }
   }
@@ -241,7 +242,7 @@ class ProductService {
       }
       return Color(int.parse(hexString, radix: 16));
     } catch (e) {
-      print('Error converting hex color: $e');
+      AppLogger.error('Error converting hex color: $e', tag: 'ProductService');
       return Colors.grey;
     }
   }

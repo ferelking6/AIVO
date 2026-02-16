@@ -1,4 +1,5 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:aivo/utils/app_logger.dart';
 
 /// 100% FREE Recommendation Service - Appelle juste les SQL RPC functions
 /// Zéro TypeScript, zéro Edge Functions, zéro coûts
@@ -40,7 +41,7 @@ class RecommendationServiceFree {
 
       return result;
     } catch (e) {
-      print('Error: $e');
+      AppLogger.error('Error: $e', tag: 'RecommendationService');
       return {};
     }
   }
@@ -71,7 +72,7 @@ class RecommendationServiceFree {
 
       return result;
     } catch (e) {
-      print('Error: $e');
+      AppLogger.error('Error: $e', tag: 'RecommendationService');
       return {};
     }
   }
@@ -100,7 +101,7 @@ class RecommendationServiceFree {
 
       return result;
     } catch (e) {
-      print('Error: $e');
+      AppLogger.error('Error: $e', tag: 'RecommendationService');
       return {};
     }
   }
@@ -129,7 +130,7 @@ class RecommendationServiceFree {
 
       return result;
     } catch (e) {
-      print('Error: $e');
+      AppLogger.error('Error: $e', tag: 'RecommendationService');
       return {};
     }
   }
@@ -158,7 +159,7 @@ class RecommendationServiceFree {
         'p_city': city,
       });
     } catch (e) {
-      print('Error recording event: $e');
+      AppLogger.error('Error recording event: $e', tag: 'RecommendationService');
     }
   }
 }

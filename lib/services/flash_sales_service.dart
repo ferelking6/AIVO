@@ -1,4 +1,5 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:aivo/utils/app_logger.dart';
 import 'package:aivo/models/FlashSale.dart';
 
 class FlashSalesService {
@@ -16,7 +17,7 @@ class FlashSalesService {
 
       return response.map((json) => FlashSale.fromJson(json)).toList();
     } catch (e) {
-      print('Error fetching flash sales: $e');
+      AppLogger.error('Error fetching flash sales: $e', tag: 'FlashSalesService');
       return [];
     }
   }
@@ -56,7 +57,7 @@ class FlashSalesService {
               ))
           .toList();
     } catch (e) {
-      print('Error fetching category flash sales: $e');
+      AppLogger.error('Error fetching category flash sales: $e', tag: 'FlashSalesService');
       return [];
     }
   }
@@ -83,7 +84,7 @@ class FlashSalesService {
       });
       return true;
     } catch (e) {
-      print('Error creating flash sale: $e');
+      AppLogger.error('Error creating flash sale: $e', tag: 'FlashSalesService');
       return false;
     }
   }
@@ -102,7 +103,7 @@ class FlashSalesService {
       await _supabase.from('flash_sales').update(updates).eq('id', saleId);
       return true;
     } catch (e) {
-      print('Error updating flash sale: $e');
+      AppLogger.error('Error updating flash sale: $e', tag: 'FlashSalesService');
       return false;
     }
   }

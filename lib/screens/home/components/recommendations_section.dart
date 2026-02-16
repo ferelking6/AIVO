@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:aivo/services/recommendation_service_free.dart';
+import 'package:aivo/utils/app_logger.dart';
 import 'package:aivo/components/recommendation_card.dart';
 import 'package:aivo/components/skeleton_loaders.dart';
 import 'package:aivo/screens/details/details_screen.dart';
@@ -56,7 +57,7 @@ class _RecommendationsSectionState extends State<RecommendationsSection> {
       if (mounted) {
         setState(() => _isLoading = false);
       }
-      print('Error loading recommendations: $e');
+      AppLogger.error('Error loading recommendations: $e', tag: 'RecommendationsSection');
     }
   }
 

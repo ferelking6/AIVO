@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:aivo/utils/app_logger.dart';
 import '../services/notification_service.dart';
 
 class NotificationProvider extends ChangeNotifier {
@@ -24,7 +25,7 @@ class NotificationProvider extends ChangeNotifier {
 
       notifyListeners();
     } catch (e) {
-      print('Error initializing notifications: $e');
+      AppLogger.error('Error initializing notifications: $e', tag: 'NotificationProvider');
     }
   }
 

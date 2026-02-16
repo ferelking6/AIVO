@@ -105,7 +105,7 @@ class _SmallProductImageState extends State<SmallProductImage> {
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
-              color: kPrimaryColor.withOpacity(widget.isSelected ? 1 : 0)),
+              color: kPrimaryColor.withAlpha(((widget.isSelected ? 1 : 0) * 255).round())),
         ),
         child: _isNetworkImage(widget.image)
             ? CachedImage(

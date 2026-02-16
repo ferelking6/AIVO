@@ -42,7 +42,7 @@ class ProductCard extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: isDark
                     ? Colors.grey[800]
-                    : kSecondaryColor.withOpacity(0.1),
+                    : kSecondaryColor.withAlpha((0.1 * 255).round()),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: _buildImage(),
@@ -74,8 +74,8 @@ class ProductCard extends StatelessWidget {
                     width: 24,
                     decoration: BoxDecoration(
                       color: product.isFavourite
-                          ? kPrimaryColor.withOpacity(0.15)
-                          : kSecondaryColor.withOpacity(0.1),
+                          ? kPrimaryColor.withAlpha((0.15 * 255).round())
+                          : kSecondaryColor.withAlpha((0.1 * 255).round()),
                       shape: BoxShape.circle,
                     ),
                     child: SvgPicture.asset(

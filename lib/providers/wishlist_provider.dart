@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:aivo/utils/app_logger.dart';
 import 'package:aivo/models/Wishlist.dart';
 import 'package:aivo/services/wishlist_service.dart';
 
@@ -29,7 +30,7 @@ class WishlistProvider extends ChangeNotifier {
       _wishlistProductIds = {for (var item in _wishlist) item.productId};
       _wishlistCount = _wishlist.length;
     } catch (e) {
-      print('Error fetching wishlist: $e');
+      AppLogger.error('Error fetching wishlist: $e', tag: 'WishlistProvider');
     } finally {
       _isLoading = false;
       notifyListeners();
@@ -55,7 +56,7 @@ class WishlistProvider extends ChangeNotifier {
 
       return success;
     } catch (e) {
-      print('Error adding to wishlist: $e');
+      AppLogger.error('Error adding to wishlist: $e', tag: 'WishlistProvider');
       return false;
     }
   }
@@ -80,7 +81,7 @@ class WishlistProvider extends ChangeNotifier {
 
       return success;
     } catch (e) {
-      print('Error removing from wishlist: $e');
+      AppLogger.error('Error removing from wishlist: $e', tag: 'WishlistProvider');
       return false;
     }
   }
@@ -109,7 +110,7 @@ class WishlistProvider extends ChangeNotifier {
       }
       return success;
     } catch (e) {
-      print('Error clearing wishlist: $e');
+      AppLogger.error('Error clearing wishlist: $e', tag: 'WishlistProvider');
       return false;
     }
   }

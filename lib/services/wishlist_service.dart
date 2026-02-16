@@ -1,4 +1,5 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:aivo/utils/app_logger.dart';
 import 'package:aivo/models/Wishlist.dart';
 
 class WishlistService {
@@ -17,7 +18,7 @@ class WishlistService {
       });
       return true;
     } catch (e) {
-      print('Error adding to wishlist: $e');
+      AppLogger.error('Error adding to wishlist: $e', tag: 'WishlistService');
       return false;
     }
   }
@@ -35,7 +36,7 @@ class WishlistService {
           .eq('product_id', productId);
       return true;
     } catch (e) {
-      print('Error removing from wishlist: $e');
+      AppLogger.error('Error removing from wishlist: $e', tag: 'WishlistService');
       return false;
     }
   }
@@ -55,7 +56,7 @@ class WishlistService {
 
       return response != null;
     } catch (e) {
-      print('Error checking wishlist: $e');
+      AppLogger.error('Error checking wishlist: $e', tag: 'WishlistService');
       return false;
     }
   }
@@ -76,7 +77,7 @@ class WishlistService {
 
       return (response as List).map((json) => Wishlist.fromJson(json)).toList();
     } catch (e) {
-      print('Error fetching wishlist: $e');
+      AppLogger.error('Error fetching wishlist: $e', tag: 'WishlistService');
       return [];
     }
   }
@@ -91,7 +92,7 @@ class WishlistService {
 
       return response.length;
     } catch (e) {
-      print('Error fetching wishlist count: $e');
+      AppLogger.error('Error fetching wishlist count: $e', tag: 'WishlistService');
       return 0;
     }
   }
@@ -102,7 +103,7 @@ class WishlistService {
       await _supabase.from('wishlists').delete().eq('user_id', userId);
       return true;
     } catch (e) {
-      print('Error clearing wishlist: $e');
+      AppLogger.error('Error clearing wishlist: $e', tag: 'WishlistService');
       return false;
     }
   }
@@ -121,7 +122,7 @@ class WishlistService {
               })
           .toList();
     } catch (e) {
-      print('Error exporting wishlist: $e');
+      AppLogger.error('Error exporting wishlist: $e', tag: 'WishlistService');
       return [];
     }
   }

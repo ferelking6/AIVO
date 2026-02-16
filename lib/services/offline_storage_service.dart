@@ -1,4 +1,5 @@
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:aivo/utils/app_logger.dart';
 import '../models/Product.dart';
 
 class OfflineStorageService {
@@ -30,9 +31,9 @@ class OfflineStorageService {
       await Hive.openBox(_favoritesBox);
       await Hive.openBox<String>(_lastSyncBox);
 
-      print('Offline storage initialized successfully');
+      AppLogger.log('Offline storage initialized successfully', tag: 'OfflineStorage');
     } catch (e) {
-      print('Error initializing offline storage: $e');
+      AppLogger.error('Error initializing offline storage: $e', tag: 'OfflineStorage');
     }
   }
 
@@ -48,7 +49,7 @@ class OfflineStorageService {
         'sync_time': DateTime.now().toIso8601String(),
       });
     } catch (e) {
-      print('Error caching products: $e');
+      AppLogger.error('Error caching products: $e', tag: 'OfflineStorage');
     }
   }
 
@@ -65,7 +66,7 @@ class OfflineStorageService {
       }
       return [];
     } catch (e) {
-      print('Error retrieving cached products: $e');
+      AppLogger.error('Error retrieving cached products: $e', tag: 'OfflineStorage');
       return [];
     }
   }
@@ -77,7 +78,7 @@ class OfflineStorageService {
       final data = products.map((p) => p.toJson()).toList();
       await productsBox.put('popular_products', data);
     } catch (e) {
-      print('Error caching popular products: $e');
+      AppLogger.error('Error caching popular products: $e', tag: 'OfflineStorage');
     }
   }
 
@@ -94,7 +95,7 @@ class OfflineStorageService {
       }
       return [];
     } catch (e) {
-      print('Error retrieving cached popular products: $e');
+      AppLogger.error('Error retrieving cached popular products: $e', tag: 'OfflineStorage');
       return [];
     }
   }
@@ -107,7 +108,7 @@ class OfflineStorageService {
       final cartBox = Hive.box(_cartBox);
       await cartBox.putAll(cartData);
     } catch (e) {
-      print('Error caching cart: $e');
+      AppLogger.error('Error caching cart: $e', tag: 'OfflineStorage');
     }
   }
 
@@ -121,7 +122,7 @@ class OfflineStorageService {
       }
       return result;
     } catch (e) {
-      print('Error retrieving cached cart: $e');
+      AppLogger.error('Error retrieving cached cart: $e', tag: 'OfflineStorage');
       return {};
     }
   }
@@ -132,7 +133,7 @@ class OfflineStorageService {
       final cartBox = Hive.box(_cartBox);
       await cartBox.clear();
     } catch (e) {
-      print('Error clearing cart cache: $e');
+      AppLogger.error('Error clearing cart cache: $e', tag: 'OfflineStorage');
     }
   }
 
@@ -144,7 +145,7 @@ class OfflineStorageService {
       final favoritesBox = Hive.box(_favoritesBox);
       await favoritesBox.put('favorite_ids', favoriteIds);
     } catch (e) {
-      print('Error caching favorites: $e');
+      AppLogger.error('Error caching favorites: $e', tag: 'OfflineStorage');
     }
   }
 
@@ -158,7 +159,7 @@ class OfflineStorageService {
       }
       return [];
     } catch (e) {
-      print('Error retrieving cached favorites: $e');
+      AppLogger.error('Error retrieving cached favorites: $e', tag: 'OfflineStorage');
       return [];
     }
   }
@@ -175,7 +176,7 @@ class OfflineStorageService {
       }
       return null;
     } catch (e) {
-      print('Error getting last sync time: $e');
+      AppLogger.error('Error getting last sync time: $e', tag: 'OfflineStorage');
       return null;
     }
   }
@@ -186,7 +187,7 @@ class OfflineStorageService {
       final syncBox = Hive.box<String>(_lastSyncBox);
       await syncBox.put('last_sync', DateTime.now().toIso8601String());
     } catch (e) {
-      print('Error updating sync time: $e');
+      AppLogger.error('Error updating sync time: $e', tag: 'OfflineStorage');
     }
   }
 
@@ -207,9 +208,9 @@ class OfflineStorageService {
       await Hive.box(_productsBox).clear();
       await Hive.box(_cartBox).clear();
       await Hive.box(_favoritesBox).clear();
-      print('All cache cleared');
+      AppLogger.log('All cache cleared', tag: 'OfflineStorage');
     } catch (e) {
-      print('Error clearing all cache: $e');
+      AppLogger.error('Error clearing all cache: $e', tag: 'OfflineStorage');
     }
   }
 
@@ -222,7 +223,7 @@ class OfflineStorageService {
       size += Hive.box(_favoritesBox).length;
       return size;
     } catch (e) {
-      print('Error getting cache size: $e');
+      AppLogger.error('Error getting cache size: $e', tag: 'OfflineStorage');
       return 0;
     }
   }

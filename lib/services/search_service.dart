@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:rxdart/rxdart.dart';
+import 'package:aivo/utils/app_logger.dart';
 import '../models/Product.dart';
 import '../services/product_service.dart';
 
@@ -46,7 +47,7 @@ class SearchService {
 
       yield filtered;
     } catch (e) {
-      print('Error searching products: $e');
+      AppLogger.error('Error searching products: $e', tag: 'SearchService');
       yield [];
     }
   }

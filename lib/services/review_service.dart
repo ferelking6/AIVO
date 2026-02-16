@@ -1,4 +1,5 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:aivo/utils/app_logger.dart';
 import 'package:aivo/models/Review.dart';
 
 class ReviewService {
@@ -27,7 +28,7 @@ class ReviewService {
       );
       return response[0]['success'] ?? false;
     } catch (e) {
-      print('Error adding review: $e');
+      AppLogger.error('Error adding review: $e', tag: 'ReviewService');
       return false;
     }
   }
@@ -52,7 +53,7 @@ class ReviewService {
 
       return response.map((json) => Review.fromJson(json)).toList();
     } catch (e) {
-      print('Error fetching reviews: $e');
+      AppLogger.error('Error fetching reviews: $e', tag: 'ReviewService');
       return [];
     }
   }
@@ -68,7 +69,7 @@ class ReviewService {
 
       return ReviewSummary.fromJson(response);
     } catch (e) {
-      print('Error fetching rating summary: $e');
+      AppLogger.error('Error fetching rating summary: $e', tag: 'ReviewService');
       return null;
     }
   }
@@ -85,7 +86,7 @@ class ReviewService {
       });
       return true;
     } catch (e) {
-      print('Error adding review image: $e');
+      AppLogger.error('Error adding review image: $e', tag: 'ReviewService');
       return false;
     }
   }
@@ -102,7 +103,7 @@ class ReviewService {
       );
       return true;
     } catch (e) {
-      print('Error marking review helpful: $e');
+      AppLogger.error('Error marking review helpful: $e', tag: 'ReviewService');
       return false;
     }
   }

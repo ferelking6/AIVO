@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:aivo/utils/app_logger.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class NotificationService {
@@ -41,16 +42,16 @@ class NotificationService {
         },
       );
 
-      print('Notifications initialized');
+      AppLogger.log('Notifications initialized', tag: 'NotificationService');
     } catch (e) {
-      print('Error initializing notifications: $e');
+      AppLogger.error('Error initializing notifications: $e', tag: 'NotificationService');
     }
   }
 
   /// Handle local notification tap
   void _handleNotificationTap(String? payload) {
     if (payload != null) {
-      print('Notification tapped with payload: $payload');
+      AppLogger.log('Notification tapped with payload: $payload', tag: 'NotificationService');
       _notificationStreamController.add({'payload': payload});
     }
   }

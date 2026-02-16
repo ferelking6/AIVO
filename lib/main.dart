@@ -7,6 +7,7 @@ import 'package:aivo/providers/review_provider.dart';
 import 'package:aivo/providers/notification_provider.dart';
 import 'package:aivo/screens/splash/splash_screen.dart';
 
+import 'package:aivo/utils/app_logger.dart';
 import 'config/supabase_config.dart';
 import 'routes.dart';
 import 'services/auth_service.dart';
@@ -21,8 +22,8 @@ void main() async {
       anonKey: SupabaseConfig.supabaseAnonKey,
     );
   } catch (e) {
-    print('Failed to initialize Supabase: $e');
-    print('Make sure to update SupabaseConfig with your credentials');
+    AppLogger.error('Failed to initialize Supabase: $e', tag: 'Main');
+    AppLogger.log('Make sure to update SupabaseConfig with your credentials', tag: 'Main');
   }
 
   runApp(const MyApp());
