@@ -2,10 +2,34 @@
   "configVersion": 2,
   "packages": [
     {
-      "name": "app_links",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/app_links-3.5.1",
+      "name": "adaptive_number",
+      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/adaptive_number-1.0.0",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "app_links",
+      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/app_links-6.4.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.5"
+    },
+    {
+      "name": "app_links_linux",
+      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/app_links_linux-1.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
+      "name": "app_links_platform_interface",
+      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/app_links_platform_interface-2.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
+      "name": "app_links_web",
+      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/app_links_web-1.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
     },
     {
       "name": "args",
@@ -62,6 +86,12 @@
       "languageVersion": "3.4"
     },
     {
+      "name": "convert",
+      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/convert-3.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "3.4"
+    },
+    {
       "name": "crypto",
       "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/crypto-3.0.7",
       "packageUri": "lib/",
@@ -74,10 +104,22 @@
       "languageVersion": "3.1"
     },
     {
+      "name": "dart_jsonwebtoken",
+      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/dart_jsonwebtoken-3.3.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "dbus",
       "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/dbus-0.7.12",
       "packageUri": "lib/",
       "languageVersion": "2.17"
+    },
+    {
+      "name": "ed25519_edwards",
+      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/ed25519_edwards-0.3.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "fake_async",
@@ -123,21 +165,21 @@
     },
     {
       "name": "flutter_local_notifications",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/flutter_local_notifications-15.1.3",
+      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/flutter_local_notifications-18.0.1",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "3.1"
     },
     {
       "name": "flutter_local_notifications_linux",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/flutter_local_notifications_linux-4.0.1",
+      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/flutter_local_notifications_linux-5.0.0",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "3.1"
     },
     {
       "name": "flutter_local_notifications_platform_interface",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/flutter_local_notifications_platform_interface-7.2.0",
+      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/flutter_local_notifications_platform_interface-8.0.0",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "3.1"
     },
     {
       "name": "flutter_localizations",
@@ -207,15 +249,15 @@
     },
     {
       "name": "functions_client",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/functions_client-1.3.2",
+      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/functions_client-2.5.0",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "3.0"
     },
     {
       "name": "gotrue",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/gotrue-1.12.6",
+      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/gotrue-2.18.0",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "3.3"
     },
     {
       "name": "gtk",
@@ -320,6 +362,12 @@
       "languageVersion": "3.2"
     },
     {
+      "name": "logging",
+      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/logging-1.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.4"
+    },
+    {
       "name": "matcher",
       "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/matcher-0.12.18",
       "packageUri": "lib/",
@@ -422,10 +470,16 @@
       "languageVersion": "3.0"
     },
     {
-      "name": "postgrest",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/postgrest-1.5.2",
+      "name": "pointycastle",
+      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/pointycastle-4.0.0",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "3.2"
+    },
+    {
+      "name": "postgrest",
+      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/postgrest-2.6.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
     },
     {
       "name": "provider",
@@ -435,9 +489,9 @@
     },
     {
       "name": "realtime_client",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/realtime_client-1.4.0",
+      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/realtime_client-2.7.0",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "3.0"
     },
     {
       "name": "retry",
@@ -500,24 +554,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "sign_in_with_apple",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/sign_in_with_apple-5.0.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.18"
-    },
-    {
-      "name": "sign_in_with_apple_platform_interface",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/sign_in_with_apple_platform_interface-1.1.0",
-      "packageUri": "lib/",
-      "languageVersion": "3.3"
-    },
-    {
-      "name": "sign_in_with_apple_web",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/sign_in_with_apple_web-1.0.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "sky_engine",
       "rootUri": "file:///opt/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -567,9 +603,9 @@
     },
     {
       "name": "storage_client",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/storage_client-1.5.4",
+      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/storage_client-2.4.1",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "3.0"
     },
     {
       "name": "stream_channel",
@@ -585,15 +621,15 @@
     },
     {
       "name": "supabase",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/supabase-1.11.11",
+      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/supabase-2.10.2",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "3.3"
     },
     {
       "name": "supabase_flutter",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/supabase_flutter-1.10.25",
+      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/supabase_flutter-2.12.0",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "3.3"
     },
     {
       "name": "synchronized",
@@ -722,30 +758,6 @@
       "languageVersion": "2.15"
     },
     {
-      "name": "webview_flutter",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/webview_flutter-4.10.0",
-      "packageUri": "lib/",
-      "languageVersion": "3.5"
-    },
-    {
-      "name": "webview_flutter_android",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/webview_flutter_android-4.3.2",
-      "packageUri": "lib/",
-      "languageVersion": "3.5"
-    },
-    {
-      "name": "webview_flutter_platform_interface",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/webview_flutter_platform_interface-2.13.0",
-      "packageUri": "lib/",
-      "languageVersion": "3.4"
-    },
-    {
-      "name": "webview_flutter_wkwebview",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.22.0",
-      "packageUri": "lib/",
-      "languageVersion": "3.5"
-    },
-    {
       "name": "win32",
       "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/win32-5.10.1",
       "packageUri": "lib/",
@@ -765,9 +777,9 @@
     },
     {
       "name": "yet_another_json_isolate",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/yet_another_json_isolate-1.1.1",
+      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/yet_another_json_isolate-2.1.0",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "3.0"
     },
     {
       "name": "aivo",

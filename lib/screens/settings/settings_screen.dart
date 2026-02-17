@@ -57,21 +57,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
             title: "Change Password",
             icon: Icons.lock,
             onTap: () {
-              // TODO: Implement change password
             },
           ),
           _buildSettingsTile(
             title: "Privacy Policy",
             icon: Icons.privacy_tip,
             onTap: () {
-              // TODO: Implement privacy policy
             },
           ),
           _buildSettingsTile(
             title: "Terms & Conditions",
             icon: Icons.description,
             onTap: () {
-              // TODO: Implement terms & conditions
             },
           ),
           const SizedBox(height: 16),
@@ -86,7 +83,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
             title: "Contact Us",
             icon: Icons.email,
             onTap: () {
-              // TODO: Implement contact us
             },
           ),
           const SizedBox(height: 16),
@@ -134,15 +130,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                     TextButton(
                       onPressed: () async {
+                        final messenger = ScaffoldMessenger.of(context);
                         Navigator.pop(context);
                         try {
                           await AuthService().signOut();
                           setState(() {});
-                          ScaffoldMessenger.of(context).showSnackBar(
+                          messenger.showSnackBar(
                             const SnackBar(content: Text("Signed out successfully")),
                           );
                         } catch (e) {
-                          ScaffoldMessenger.of(context).showSnackBar(
+                          messenger.showSnackBar(
                             SnackBar(
                               content: Text("Sign out failed: ${e.toString()}"),
                               backgroundColor: Colors.red,

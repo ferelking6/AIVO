@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:aivo/models/NotificationPreferences.dart';
+import 'package:aivo/models/notification_preferences.dart';
 import 'package:aivo/services/notification_preferences_service.dart';
 
 class NotificationPreferencesProvider extends ChangeNotifier {

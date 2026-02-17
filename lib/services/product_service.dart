@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:aivo/utils/app_logger.dart';
-import '../models/Product.dart';
+import '../models/product.dart'';
 
 class ProductService {
   static final ProductService _instance = ProductService._internal();
@@ -252,7 +252,6 @@ class ProductService {
     if (imagePath.startsWith('http')) {
       return imagePath;
     }
-    final storageUrl = _supabase.storageUrl;
-    return '$storageUrl/object/public/products/$imagePath';
+    return _supabase.storage.from('products').getPublicUrl(imagePath);
   }
 }

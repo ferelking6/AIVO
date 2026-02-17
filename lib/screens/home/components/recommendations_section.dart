@@ -4,7 +4,7 @@ import 'package:aivo/utils/app_logger.dart';
 import 'package:aivo/components/recommendation_card.dart';
 import 'package:aivo/components/skeleton_loaders.dart';
 import 'package:aivo/screens/details/details_screen.dart';
-import 'package:aivo/models/Product.dart';
+import '../models/product.dart'';
 
 class RecommendationsSection extends StatefulWidget {
   final String? userId;

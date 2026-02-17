@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../models/Review.dart';
+import '../models/review.dart';
 import '../../providers/review_provider.dart';
 
 class ProductReviewsWidget extends StatefulWidget {

@@ -17,9 +17,9 @@ class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
   String? email;
   String? password;
-  String? conform_password;
+  String? confirmPassword;
   bool remember = false;
-  final List<String?> errors = [];
+  final List<String> errors = [];
 
   void addError({String? error}) {
     if (!errors.contains(error)) {
@@ -107,14 +107,14 @@ class _SignUpFormState extends State<SignUpForm> {
           const SizedBox(height: 20),
           TextFormField(
             obscureText: true,
-            onSaved: (newValue) => conform_password = newValue,
+            onSaved: (newValue) => confirmPassword = newValue,
             onChanged: (value) {
               if (value.isNotEmpty) {
                 removeError(error: kPassNullError);
-              } else if (value.isNotEmpty && password == conform_password) {
+              } else if (value.isNotEmpty && password == confirmPassword) {
                 removeError(error: kMatchPassError);
               }
-              conform_password = value;
+              confirmPassword = value;
             },
             validator: (value) {
               if (value!.isEmpty) {
@@ -151,6 +151,7 @@ class _SignUpFormState extends State<SignUpForm> {
                   ),
                 );
 
+                Navigator.pop(context); // Close loading dialog
                 try {
                   // Try to sign up with Supabase
                   await AuthService().signUp(
@@ -159,13 +160,10 @@ class _SignUpFormState extends State<SignUpForm> {
                   );
                   
                   if (mounted) {
-                    Navigator.pop(context); // Close loading dialog
                     Navigator.pushNamed(context, CompleteProfileScreen.routeName);
                   }
                 } catch (e) {
                   if (mounted) {
-                    Navigator.pop(context); // Close loading dialog
-                    
                     // Show error dialog
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(

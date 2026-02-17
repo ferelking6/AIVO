@@ -1,6 +1,6 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:aivo/utils/app_logger.dart';
-import 'package:aivo/models/FlashSale.dart';
+import 'package:aivo/models/flash_sale.dart';
 
 class FlashSalesService {
   final SupabaseClient _supabase = Supabase.instance.client;

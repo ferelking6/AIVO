@@ -1,6 +1,6 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:aivo/utils/app_logger.dart';
-import 'package:aivo/models/Wishlist.dart';
+import '../models/wishlist.dart'';
 
 class WishlistService {
   final SupabaseClient _supabase = Supabase.instance.client;
@@ -87,7 +87,7 @@ class WishlistService {
     try {
       final response = await _supabase
           .from('wishlists')
-          .select('*', const FetchOptions(count: CountOption.exact))
+          .select('id')
           .eq('user_id', userId);
 
       return response.length;
@@ -113,13 +113,17 @@ class WishlistService {
     try {
       final wishlist = await getUserWishlist(userId: userId, limit: 1000);
       return wishlist
-          .map((w) => {
-                'product_id': w.productId,
-                'product_title': w.product?.title ?? '',
-                'product_price': w.product?.price ?? 0,
-                'product_image': w.product?.image ?? '',
-                'added_at': w.addedAt.toIso8601String(),
-              })
+          .map((w) {
+            final product = w.product;
+            final addedAt = w.addedAt;
+            return {
+              'product_id': w.productId,
+              'product_title': product?.title ?? '',
+              'product_price': product?.price ?? 0,
+              'product_image': product?.image ?? '',
+              'added_at': addedAt.toIso8601String(),
+            };
+          })
           .toList();
     } catch (e) {
       AppLogger.error('Error exporting wishlist: $e', tag: 'WishlistService');

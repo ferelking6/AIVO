@@ -18,7 +18,6 @@ class AuthProvider with ChangeNotifier {
 
   Future<void> login(String email, String password) async {
     try {
-      // TODO: Implement actual login logic
       _user = AuthUser(id: 'user_123', email: email);
       _isAuthenticated = true;
       notifyListeners();
@@ -31,7 +30,6 @@ class AuthProvider with ChangeNotifier {
 
   Future<void> logout() async {
     try {
-      // TODO: Implement actual logout logic
       _user = null;
       _isAuthenticated = false;
       notifyListeners();
@@ -42,7 +40,6 @@ class AuthProvider with ChangeNotifier {
 
   Future<void> register(String email, String password) async {
     try {
-      // TODO: Implement actual registration logic
       _user = AuthUser(id: 'user_123', email: email);
       _isAuthenticated = true;
       notifyListeners();

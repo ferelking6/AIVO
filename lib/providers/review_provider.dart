@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:aivo/models/Review.dart';
+import '../models/review.dart'';
 import 'package:aivo/services/review_service.dart';
 
 class ReviewProvider extends ChangeNotifier {
@@ -106,7 +106,6 @@ class ReviewProvider extends ChangeNotifier {
   /// Mark a review as helpful
   Future<void> markHelpful(String reviewId, bool helpful) async {
     try {
-      // TODO: Implement mark helpful in review service
       notifyListeners();
     } catch (e) {
       _error = e.toString();

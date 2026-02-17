@@ -21,7 +21,7 @@ class _SignFormState extends State<SignForm> {
   String? email;
   String? password;
   bool? remember = false;
-  final List<String?> errors = [];
+  final List<String> errors = [];
   bool _canUseBiometric = false;
 
   @override
@@ -193,6 +193,7 @@ class _SignFormState extends State<SignForm> {
                   ),
                 );
 
+                Navigator.pop(context);
                 try {
                   await AuthService().signIn(
                     email: email ?? '',
@@ -200,12 +201,10 @@ class _SignFormState extends State<SignForm> {
                   );
 
                   if (mounted) {
-                    Navigator.pop(context);
                     Navigator.pushNamed(context, LoginSuccessScreen.routeName);
                   }
                 } catch (e) {
                   if (mounted) {
-                    Navigator.pop(context);
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(

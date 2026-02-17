@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../components/cached_image.dart';
 import '../../../constants.dart';
-import '../../../models/Product.dart';
+import '../models/product.dart'';
 
 class ProductImages extends StatefulWidget {
   const ProductImages({

@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:aivo/screens/cart/cart_screen.dart';
 
 import '../../components/product_reviews_widget.dart';
-import '../../models/Product.dart';
+import '../models/product.dart'';
 import 'components/color_dots.dart';
 import 'components/product_description.dart';
 import 'components/product_images.dart';

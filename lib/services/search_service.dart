@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:rxdart/rxdart.dart';
 import 'package:aivo/utils/app_logger.dart';
-import '../models/Product.dart';
+import '../models/product.dart';
 import '../services/product_service.dart';
 
 class SearchService {

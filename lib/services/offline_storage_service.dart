@@ -1,6 +1,6 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:aivo/utils/app_logger.dart';
-import '../models/Product.dart';
+import '../models/product.dart';
 
 class OfflineStorageService {
   static const String _productsBox = 'products_cache';

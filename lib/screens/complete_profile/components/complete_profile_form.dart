@@ -14,7 +14,7 @@ class CompleteProfileForm extends StatefulWidget {
 
 class _CompleteProfileFormState extends State<CompleteProfileForm> {
   final _formKey = GlobalKey<FormState>();
-  final List<String?> errors = [];
+  final List<String> errors = [];
   String? firstName;
   String? lastName;
   String? phoneNumber;

@@ -38,7 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_svg: ^2.0.9 # help us to use SVG in our app
   provider: ^6.1.1 # for State management
-  supabase_flutter: ^1.10.0 # for authentication and database
+  supabase_flutter: ^2.0.0 # for authentication and database
 
   # Quick Wins & Performance
   cached_network_image: ^3.3.0 # Image caching
@@ -54,7 +54,7 @@ dependencies:
   local_auth: ^2.1.0 # Fingerprint/Face recognition
 
   # Notifications
-  flutter_local_notifications: ^15.0.0 # Local notifications
+  flutter_local_notifications: ^18.0.0 # Local notifications
 
   # Offline Mode
   hive: ^2.2.0 # Local storage

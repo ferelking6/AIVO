@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:aivo/models/FlashSale.dart';
+import 'package:aivo/models/flash_sale.dart';
 import 'package:aivo/services/flash_sales_service.dart';
 
 class FlashSalesProvider extends ChangeNotifier {
