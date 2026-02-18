@@ -39,6 +39,7 @@ dependencies:
   flutter_svg: ^2.0.9 # help us to use SVG in our app
   provider: ^6.1.1 # for State management
   supabase_flutter: ^2.0.0 # for authentication and database
+  app_links: ^3.4.0 # Fix Gradle incompatibility
 
   # Quick Wins & Performance
   cached_network_image: ^3.3.0 # Image caching
