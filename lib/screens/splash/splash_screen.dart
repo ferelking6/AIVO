@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../constants.dart';
 import '../home/home_screen.dart';
-import '../sign_in/sign_in_screen.dart';
 import 'components/splash_content.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -18,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   int currentPage = 0;
   List<Map<String, String>> splashData = [
     {
-      "text": "Welcome to Tokoto, Let’s shop!",
+      "text": "Welcome to Tokoto, Let's shop!",
       "image": "assets/images/splash_1.png"
     },
     {
@@ -31,6 +30,25 @@ class _SplashScreenState extends State<SplashScreen> {
       "image": "assets/images/splash_3.png"
     },
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    // Navigate to home screen after showing all splash screens
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _navigateToHome();
+    });
+  }
+
+  void _navigateToHome() {
+    // Skip to home after animations are done
+    Future.delayed(const Duration(seconds: 5), () {
+      if (mounted) {
+        Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,18 +98,12 @@ class _SplashScreenState extends State<SplashScreen> {
                         ),
                       ),
                       const Spacer(flex: 3),
+                      // Auto navigate button - shows "Get Started"
                       ElevatedButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, HomeScreen.routeName);
+                          Navigator.pushReplacementNamed(context, HomeScreen.routeName);
                         },
-                        child: const Text("Continue as Guest"),
-                      ),
-                      const SizedBox(height: 12),
-                      OutlinedButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, SignInScreen.routeName);
-                        },
-                        child: const Text("Sign In"),
+                        child: const Text("Get Started"),
                       ),
                       const Spacer(),
                     ],
