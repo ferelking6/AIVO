@@ -9,10 +9,10 @@ class CompleteProfileForm extends StatefulWidget {
   const CompleteProfileForm({super.key});
 
   @override
-  _CompleteProfileFormState createState() => _CompleteProfileFormState();
+  CompleteProfileFormState createState() => CompleteProfileFormState();
 }
 
-class _CompleteProfileFormState extends State<CompleteProfileForm> {
+class CompleteProfileFormState extends State<CompleteProfileForm> {
   final _formKey = GlobalKey<FormState>();
   final List<String> errors = [];
   String? firstName;
@@ -20,7 +20,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   String? phoneNumber;
   String? address;
 
-  void addError({String? error}) {
+  void addError({required String error}) {
     if (!errors.contains(error)) {
       setState(() {
         errors.add(error);
@@ -28,7 +28,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
     }
   }
 
-  void removeError({String? error}) {
+  void removeError({required String error}) {
     if (errors.contains(error)) {
       setState(() {
         errors.remove(error);

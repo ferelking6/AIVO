@@ -1,6 +1,6 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:aivo/utils/app_logger.dart';
-import '../models/review.dart'';
+import '../models/review.dart';
 
 class ReviewService {
   final SupabaseClient _supabase = Supabase.instance.client;

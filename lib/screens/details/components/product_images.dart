@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../components/cached_image.dart';
 import '../../../constants.dart';
-import '../models/product.dart'';
+import '../../../models/product.dart';
 
 class ProductImages extends StatefulWidget {
   const ProductImages({
@@ -13,10 +13,10 @@ class ProductImages extends StatefulWidget {
   final Product product;
 
   @override
-  _ProductImagesState createState() => _ProductImagesState();
+  ProductImagesState createState() => ProductImagesState();
 }
 
-class _ProductImagesState extends State<ProductImages> {
+class ProductImagesState extends State<ProductImages> {
   int selectedImage = 0;
 
   bool _isNetworkImage(String path) {

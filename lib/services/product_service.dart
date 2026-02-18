@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:aivo/utils/app_logger.dart';
-import '../models/product.dart'';
+import '../models/product.dart';
 
 class ProductService {
   static final ProductService _instance = ProductService._internal();

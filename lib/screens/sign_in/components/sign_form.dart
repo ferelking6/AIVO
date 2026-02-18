@@ -13,10 +13,10 @@ class SignForm extends StatefulWidget {
   const SignForm({super.key});
 
   @override
-  _SignFormState createState() => _SignFormState();
+  SignFormState createState() => SignFormState();
 }
 
-class _SignFormState extends State<SignForm> {
+class SignFormState extends State<SignForm> {
   final _formKey = GlobalKey<FormState>();
   String? email;
   String? password;
@@ -39,7 +39,7 @@ class _SignFormState extends State<SignForm> {
     }
   }
 
-  void addError({String? error}) {
+  void addError({required String error}) {
     if (!errors.contains(error)) {
       setState(() {
         errors.add(error);
@@ -47,7 +47,7 @@ class _SignFormState extends State<SignForm> {
     }
   }
 
-  void removeError({String? error}) {
+  void removeError({required String error}) {
     if (errors.contains(error)) {
       setState(() {
         errors.remove(error);
@@ -183,17 +183,18 @@ class _SignFormState extends State<SignForm> {
             onPressed: () async {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
-                KeyboardUtil.hideKeyboard(context);
+                final ctx = context;
+                KeyboardUtil.hideKeyboard(ctx);
 
                 showDialog(
-                  context: context,
+                  context: ctx,
                   barrierDismissible: false,
                   builder: (context) => const Center(
                     child: CircularProgressIndicator(),
                   ),
                 );
 
-                Navigator.pop(context);
+                Navigator.pop(ctx);
                 try {
                   await AuthService().signIn(
                     email: email ?? '',
@@ -201,11 +202,11 @@ class _SignFormState extends State<SignForm> {
                   );
 
                   if (mounted) {
-                    Navigator.pushNamed(context, LoginSuccessScreen.routeName);
+                    Navigator.pushNamed(ctx, LoginSuccessScreen.routeName);
                   }
                 } catch (e) {
                   if (mounted) {
-                    ScaffoldMessenger.of(context).showSnackBar(
+                    ScaffoldMessenger.of(ctx).showSnackBar(
                       SnackBar(
                         content: Text(
                           'Sign in failed: ${e.toString()}',

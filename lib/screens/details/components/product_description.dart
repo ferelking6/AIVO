@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
 import '../../../constants.dart';
-import '../models/product.dart'';
+import '../../../models/product.dart';
 import '../../../providers/product_provider.dart';
 
 class ProductDescription extends StatefulWidget {

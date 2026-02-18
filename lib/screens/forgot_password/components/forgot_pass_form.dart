@@ -9,10 +9,10 @@ class ForgotPassForm extends StatefulWidget {
   const ForgotPassForm({super.key});
 
   @override
-  _ForgotPassFormState createState() => _ForgotPassFormState();
+  ForgotPassFormState createState() => ForgotPassFormState();
 }
 
-class _ForgotPassFormState extends State<ForgotPassForm> {
+class ForgotPassFormState extends State<ForgotPassForm> {
   final _formKey = GlobalKey<FormState>();
   List<String> errors = [];
   String? email;

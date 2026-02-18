@@ -4,7 +4,7 @@ import 'package:aivo/providers/flash_sales_provider.dart';
 import 'package:aivo/components/flash_sale_card.dart';
 import 'package:aivo/components/skeleton_loaders.dart';
 import 'package:aivo/screens/details/details_screen.dart';
-import '../models/product.dart'';
+import 'package:aivo/models/product.dart';
 
 class FlashSalesSection extends StatefulWidget {
   const FlashSalesSection({super.key});

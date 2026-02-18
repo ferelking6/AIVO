@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../models/review.dart'';
+import '../models/review.dart';
 import 'package:aivo/services/review_service.dart';
 
 class ReviewProvider extends ChangeNotifier {

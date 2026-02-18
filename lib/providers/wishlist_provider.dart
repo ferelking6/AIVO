@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:aivo/utils/app_logger.dart';
-import '../models/wishlist.dart'';
+import '../models/wishlist.dart';
 import 'package:aivo/services/wishlist_service.dart';
 
 class WishlistProvider extends ChangeNotifier {

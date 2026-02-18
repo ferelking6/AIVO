@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../models/product.dart'';
+import '../models/product.dart';
 import '../services/product_service.dart';
 import '../services/search_service.dart';
 
@@ -70,8 +70,8 @@ class SearchProvider extends ChangeNotifier {
     _filteredProducts = _allProducts.where((product) {
       // Search query filter
       if (_searchQuery.isNotEmpty) {
-        final matchesQuery = product.title.toLowerCase().contains(_searchQuery.toLowerCase()) ||
-            product.description.toLowerCase().contains(_searchQuery.toLowerCase());
+        final matchesQuery = (product.title.toLowerCase().contains(_searchQuery.toLowerCase())) ||
+            (product.description.toLowerCase().contains(_searchQuery.toLowerCase()));
         if (!matchesQuery) return false;
       }
 

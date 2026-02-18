@@ -41,8 +41,8 @@ class SearchService {
       final allProducts = await _productService.fetchAllProducts();
       final filtered = allProducts
           .where((product) =>
-              product.title.toLowerCase().contains(query.toLowerCase()) ||
-              product.description.toLowerCase().contains(query.toLowerCase()))
+              (product.title.toLowerCase().contains(query.toLowerCase())) ||
+              (product.description.toLowerCase().contains(query.toLowerCase())))
           .toList();
 
       yield filtered;

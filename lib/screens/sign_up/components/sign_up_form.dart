@@ -10,10 +10,10 @@ class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});
 
   @override
-  _SignUpFormState createState() => _SignUpFormState();
+  SignUpFormState createState() => SignUpFormState();
 }
 
-class _SignUpFormState extends State<SignUpForm> {
+class SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
   String? email;
   String? password;
@@ -22,7 +22,7 @@ class _SignUpFormState extends State<SignUpForm> {
   final List<String> errors = [];
 
   void addError({String? error}) {
-    if (!errors.contains(error)) {
+    if (error != null && !errors.contains(error)) {
       setState(() {
         errors.add(error);
       });
@@ -141,31 +141,32 @@ class _SignUpFormState extends State<SignUpForm> {
             onPressed: () async {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
-                
+                final ctx = context;
+
                 // Show loading dialog
                 showDialog(
-                  context: context,
+                  context: ctx,
                   barrierDismissible: false,
                   builder: (context) => const Center(
                     child: CircularProgressIndicator(),
                   ),
                 );
 
-                Navigator.pop(context); // Close loading dialog
+                Navigator.pop(ctx); // Close loading dialog
                 try {
                   // Try to sign up with Supabase
                   await AuthService().signUp(
                     email: email ?? '',
                     password: password ?? '',
                   );
-                  
+
                   if (mounted) {
-                    Navigator.pushNamed(context, CompleteProfileScreen.routeName);
+                    Navigator.pushNamed(ctx, CompleteProfileScreen.routeName);
                   }
                 } catch (e) {
                   if (mounted) {
                     // Show error dialog
-                    ScaffoldMessenger.of(context).showSnackBar(
+                    ScaffoldMessenger.of(ctx).showSnackBar(
                       SnackBar(
                         content: Text(
                           'Sign up failed: ${e.toString()}',
