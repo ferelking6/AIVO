@@ -142,6 +142,8 @@ class SignUpFormState extends State<SignUpForm> {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
                 final ctx = context;
+                final navigator = Navigator.of(ctx);
+                final messenger = ScaffoldMessenger.of(ctx);
 
                 // Show loading dialog
                 showDialog(
@@ -160,22 +162,20 @@ class SignUpFormState extends State<SignUpForm> {
                     password: password ?? '',
                   );
 
-                  if (mounted) {
-                    Navigator.pushNamed(ctx, CompleteProfileScreen.routeName);
-                  }
+                  if (!mounted) return;
+                  navigator.pushNamed(CompleteProfileScreen.routeName);
                 } catch (e) {
-                  if (mounted) {
-                    // Show error dialog
-                    ScaffoldMessenger.of(ctx).showSnackBar(
-                      SnackBar(
-                        content: Text(
-                          'Sign up failed: ${e.toString()}',
-                          maxLines: 3,
-                        ),
-                        backgroundColor: Colors.red,
+                  if (!mounted) return;
+                  // Show error dialog
+                  messenger.showSnackBar(
+                    SnackBar(
+                      content: Text(
+                        'Sign up failed: ${e.toString()}',
+                        maxLines: 3,
                       ),
-                    );
-                  }
+                      backgroundColor: Colors.red,
+                    ),
+                  );
                 }
               }
             },

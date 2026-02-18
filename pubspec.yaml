@@ -40,6 +40,7 @@ dependencies:
   provider: ^6.1.1 # for State management
   supabase_flutter: ^2.0.0 # for authentication and database
   app_links: ^3.4.0 # Fix Gradle incompatibility
+  path_provider: ^2.1.0 # for accessing app cache/data directories
 
   # Quick Wins & Performance
   cached_network_image: ^3.3.0 # Image caching

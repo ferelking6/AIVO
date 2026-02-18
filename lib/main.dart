@@ -15,6 +15,9 @@ import 'services/auth_service.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  // Initialize logging
+  await AppLogger.initialize();
+
   // Initialize Supabase
   try {
     await AuthService.initialize(

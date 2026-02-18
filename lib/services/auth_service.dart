@@ -1,4 +1,5 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:aivo/utils/app_logger.dart';
 
 class AuthService {
   static final AuthService _instance = AuthService._internal();
@@ -16,10 +17,17 @@ class AuthService {
     required String url,
     required String anonKey,
   }) async {
-    await Supabase.initialize(
-      url: url,
-      anonKey: anonKey,
-    );
+    try {
+      AppLogger.log('Initializing Supabase with URL: $url', tag: 'AuthService');
+      await Supabase.initialize(
+        url: url,
+        anonKey: anonKey,
+      );
+      AppLogger.log('✓ Supabase initialized successfully', tag: 'AuthService');
+    } catch (e) {
+      AppLogger.error('✗ Failed to initialize Supabase: $e', tag: 'AuthService');
+      rethrow;
+    }
   }
 
   /// Sign up with email and password
@@ -28,12 +36,15 @@ class AuthService {
     required String password,
   }) async {
     try {
+      AppLogger.log('Attempting sign up for: $email', tag: 'AuthService');
       final response = await supabase.auth.signUp(
         email: email,
         password: password,
       );
+      AppLogger.log('✓ Sign up successful for: $email', tag: 'AuthService');
       return response;
     } catch (e) {
+      AppLogger.error('✗ Sign up failed for $email: $e', tag: 'AuthService');
       rethrow;
     }
   }
@@ -44,12 +55,15 @@ class AuthService {
     required String password,
   }) async {
     try {
+      AppLogger.log('Attempting sign in for: $email', tag: 'AuthService');
       final response = await supabase.auth.signInWithPassword(
         email: email,
         password: password,
       );
+      AppLogger.log('✓ Sign in successful for: $email', tag: 'AuthService');
       return response;
     } catch (e) {
+      AppLogger.error('✗ Sign in failed for $email: $e', tag: 'AuthService');
       rethrow;
     }
   }
@@ -57,8 +71,11 @@ class AuthService {
   /// Sign out
   Future<void> signOut() async {
     try {
+      AppLogger.log('Signing out...', tag: 'AuthService');
       await supabase.auth.signOut();
+      AppLogger.log('✓ Sign out successful', tag: 'AuthService');
     } catch (e) {
+      AppLogger.error('✗ Sign out failed: $e', tag: 'AuthService');
       rethrow;
     }
   }

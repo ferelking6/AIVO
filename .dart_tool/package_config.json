@@ -2,34 +2,10 @@
   "configVersion": 2,
   "packages": [
     {
-      "name": "adaptive_number",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/adaptive_number-1.0.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "app_links",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/app_links-6.4.1",
+      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/app_links-3.5.1",
       "packageUri": "lib/",
-      "languageVersion": "3.5"
-    },
-    {
-      "name": "app_links_linux",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/app_links_linux-1.0.3",
-      "packageUri": "lib/",
-      "languageVersion": "3.2"
-    },
-    {
-      "name": "app_links_platform_interface",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/app_links_platform_interface-2.0.2",
-      "packageUri": "lib/",
-      "languageVersion": "3.2"
-    },
-    {
-      "name": "app_links_web",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/app_links_web-1.0.4",
-      "packageUri": "lib/",
-      "languageVersion": "3.2"
+      "languageVersion": "2.17"
     },
     {
       "name": "args",
@@ -86,12 +62,6 @@
       "languageVersion": "3.4"
     },
     {
-      "name": "convert",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/convert-3.1.2",
-      "packageUri": "lib/",
-      "languageVersion": "3.4"
-    },
-    {
       "name": "crypto",
       "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/crypto-3.0.7",
       "packageUri": "lib/",
@@ -104,22 +74,10 @@
       "languageVersion": "3.1"
     },
     {
-      "name": "dart_jsonwebtoken",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/dart_jsonwebtoken-3.3.1",
-      "packageUri": "lib/",
-      "languageVersion": "3.0"
-    },
-    {
       "name": "dbus",
       "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/dbus-0.7.12",
       "packageUri": "lib/",
       "languageVersion": "2.17"
-    },
-    {
-      "name": "ed25519_edwards",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/ed25519_edwards-0.3.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
     },
     {
       "name": "fake_async",
@@ -249,13 +207,13 @@
     },
     {
       "name": "functions_client",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/functions_client-2.5.0",
+      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/functions_client-2.4.4",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
     {
       "name": "gotrue",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/gotrue-2.18.0",
+      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/gotrue-2.15.0",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
@@ -470,14 +428,8 @@
       "languageVersion": "3.0"
     },
     {
-      "name": "pointycastle",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/pointycastle-4.0.0",
-      "packageUri": "lib/",
-      "languageVersion": "3.2"
-    },
-    {
       "name": "postgrest",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/postgrest-2.6.0",
+      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/postgrest-2.5.0",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -489,7 +441,7 @@
     },
     {
       "name": "realtime_client",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/realtime_client-2.7.0",
+      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/realtime_client-2.5.3",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -621,13 +573,13 @@
     },
     {
       "name": "supabase",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/supabase-2.10.2",
+      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/supabase-2.9.2",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
     {
       "name": "supabase_flutter",
-      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/supabase_flutter-2.12.0",
+      "rootUri": "file:///home/vscode/.pub-cache/hosted/pub.dev/supabase_flutter-2.10.2",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },

@@ -184,6 +184,8 @@ class SignFormState extends State<SignForm> {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
                 final ctx = context;
+                final navigator = Navigator.of(ctx);
+                final messenger = ScaffoldMessenger.of(ctx);
                 KeyboardUtil.hideKeyboard(ctx);
 
                 showDialog(
@@ -201,21 +203,19 @@ class SignFormState extends State<SignForm> {
                     password: password ?? '',
                   );
 
-                  if (mounted) {
-                    Navigator.pushNamed(ctx, LoginSuccessScreen.routeName);
-                  }
+                  if (!mounted) return;
+                  navigator.pushNamed(LoginSuccessScreen.routeName);
                 } catch (e) {
-                  if (mounted) {
-                    ScaffoldMessenger.of(ctx).showSnackBar(
-                      SnackBar(
-                        content: Text(
-                          'Sign in failed: ${e.toString()}',
-                          maxLines: 3,
-                        ),
-                        backgroundColor: Colors.red,
+                  if (!mounted) return;
+                  messenger.showSnackBar(
+                    SnackBar(
+                      content: Text(
+                        'Sign in failed: ${e.toString()}',
+                        maxLines: 3,
                       ),
-                    );
-                  }
+                      backgroundColor: Colors.red,
+                    ),
+                  );
                 }
               }
             },
