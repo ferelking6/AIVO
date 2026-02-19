@@ -31,7 +31,7 @@ class Product {
       'title': title,
       'description': description,
       'images': images,
-      'colors': colors.map((c) => c.toARGB32()).toList(),
+      'colors': colors.map((c) => c.value).toList(),
       'rating': rating,
       'price': price,
       'isFavourite': isFavourite,
